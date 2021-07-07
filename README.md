@@ -97,16 +97,25 @@ Profile: tests from {:path=>"/Users/viviengarot/Desktop/VisualCode/skillsmap/Pac
 Version: (not specified)
 Target:  ssh://vagrant@127.0.0.1:2222
 
-  System Package nginx
+  Service nginx
      ✔  is expected to be installed
+     ✔  is expected to be enabled
+     ✔  is expected to be running
+  System Package nginx
+     ✔  version is expected to eq "1.14.0-0ubuntu1.9"
+  System Package docker
+     ✔  is expected not to be installed
+  Service sshd
+     ✔  is expected to be installed
+     ✔  is expected to be running
 
-Test Summary: 1 successful, 0 failures, 0 skipped
-       Finished verifying <default-vbox-nginx64> (0m2.45s).
+Test Summary: 7 successful, 0 failures, 0 skipped
+       Finished verifying <default-vbox-nginx64> (0m2.13s).
 -----> Destroying <default-vbox-nginx64>...
        ==> default: Forcing shutdown of VM...
        ==> default: Destroying VM and associated drives...
        Vagrant instance <default-vbox-nginx64> destroyed.
-       Finished destroying <default-vbox-nginx64> (0m3.93s).
-       Finished testing <default-vbox-nginx64> (0m46.99s).
------> Test Kitchen is finished. (0m48.29s)
+       Finished destroying <default-vbox-nginx64> (0m3.89s).
+       Finished testing <default-vbox-nginx64> (0m42.57s).
+-----> Test Kitchen is finished. (0m43.43s)  
 ```
