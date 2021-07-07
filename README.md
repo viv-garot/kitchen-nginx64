@@ -1,7 +1,7 @@
 # kitchen-nginx64
 
 ## Description
-Create a Test Kitchen to check nginx is installed on a Vagrant nginx box
+Create a Test Kitchen to check nginx package is installed on a Vagrant virtualbox box
 
 ## Pre-requirements
 
@@ -15,9 +15,6 @@ Create a Test Kitchen to check nginx is installed on a Vagrant nginx box
 - Clone
 - Build
 - Test
-- Vagrant usage
-- Publish
-- Consume 
 
 ---
 
@@ -77,132 +74,4 @@ All at once
 
 ```
 bundle exec kitchen test
-```
-
-
-### How to use the box with Vagrant
-
-#### Initialize the box to create a VagrantFile
-
-```
-vagrant init -m nginx64
-```
-
-#### Start the box
-
-```
-vagrant up
-```
-
-### Access the box
-
-```
-vagrant ssh
-```
-or 
-```
-ssh vagrant@127.0.0.1 -p 2222 
-```
-*(password = vagrant)*
-*(port 2222 is hardcoded in bionic64.json)*
-
-### Destroy the box
-
-```
-vagrant destroy
-```
-
-### Remove the box
-
-```
-vagrant box remove bionic64
-```
-
-
-## Publish to Vagrant Cloud
-
-### Login to Vagrant Cloud
-
-```
-vagrant cloud auth login
-```
-
-*Note : If you have Two-Factor authentication enabled the login will fail with the bellow error*
-```
- - Two-factor authentication is enabled! Vagrant Cloud does not support creating (VagrantCloud::Error::ClientError::RequestError)
-access tokens via the API when the user has two-factor authentication
-enabled. Please create an access token using the Vagrant Cloud website and store
-the result in the 'ATLAS_TOKEN' environment variable.
-```
-
-*- Create a token in Vagrant Cloud if not performed already*
-
-![image](https://user-images.githubusercontent.com/85481359/124562546-6f819000-de3f-11eb-9609-8c5ed40dc159.png)
-
-*- And export the result in the 'ATLAS_TOKEN' environment variable*
-
-```
-export ATLAS_TOKEN=<generated-token>
-```
-
-*- Then try again to login*
-
-```
-vagrant cloud auth login
-```
-
-### Create the box in Vagrant Cloud
-
-```
-vagrant cloud box create <user>/<box> --no-private
-```
-e.g.
-```
-vagrant cloud box create vivien/nginx64 --no-private
-```
-
-### Publish the box to Vagrant Cloud
-
-```
-vagrant cloud publish --box-version `date +%y.%m.%d` \
-  --force --no-private --release <user>/<box>   \
-  `date +%y.%m.%d` virtualbox nginx64-vbox.box
-```
-
-e.g.
-```
-vagrant cloud publish --box-version `date +%y.%m.%d` \
-  --force --no-private --release vivien/nginx64   \
-  `date +%y.%m.%d` virtualbox nginx64-vbox.box
-```
-
-## Consume the box from the Vagrant Cloud
-
-### Create a sub directory
-
-```
-mkdir myboxes
-```
-
-### Change directory
-
-```
-cd myboxes
-```
-
-### Initialize the box to create a VagrantFile
-
-```
-vagrant init -m <user>/<box>
-```
-
-e.g.
-```
-vagrant init -m vivien/nginx64
-```
-
-### Start the box
-
-```
-vagrant up
 ```
