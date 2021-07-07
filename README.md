@@ -104,13 +104,18 @@ Target:  ssh://vagrant@127.0.0.1:2222
   System Package nginx
      ✔  version is expected to eq "1.14.0-0ubuntu1.9"
   System Package docker
-     ×  is expected to be installed
-     expected that `System Package docker` is installed
+     ✔  is expected not to be installed
   Service sshd
-     ×  is expected not to be installed
-     expected Service sshd not to be installed
-     ×  is expected not to be running
-     expected Service sshd not to be running
-     
-Test Summary: 4 successful, 3 failures, 0 skipped   
+     ✔  is expected to be installed
+     ✔  is expected to be running
+
+Test Summary: 7 successful, 0 failures, 0 skipped
+       Finished verifying <default-vbox-nginx64> (0m2.13s).
+-----> Destroying <default-vbox-nginx64>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <default-vbox-nginx64> destroyed.
+       Finished destroying <default-vbox-nginx64> (0m3.89s).
+       Finished testing <default-vbox-nginx64> (0m42.57s).
+-----> Test Kitchen is finished. (0m43.43s)  
 ```
