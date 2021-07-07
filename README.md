@@ -54,7 +54,7 @@ rbenv install 2.6.6
 rbenv local 2.6.6
 ```
 
-### Install required gems dependencies locally
+### Install required RubyGems dependencies locally
 
 ```
 bundle install --path vendor/bundle
