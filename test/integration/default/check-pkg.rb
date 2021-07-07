@@ -1,19 +1,18 @@
-describe package('nginx') do
+describe service('nginx') do
   it { should be_installed }
+  it { should be_enabled }
+  it { should be_running }
 end
 
 describe package('nginx') do
-    it { should be_enabled }
-end
-
-describe package('nginx') do
-    it { should be_running }
+  its('version') { should eq '1.14.0-0ubuntu1.9' }
 end
 
 describe package('docker') do
-    it { should be_installed }
+  it { should be_installed }
 end
 
-describe package('netcat') do
-    it { should_not be_installed }
+describe service('sshd') do
+  it { should_not be_installed }
+  it { should_not be_running }
 end
