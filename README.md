@@ -111,4 +111,6 @@ Target:  ssh://vagrant@127.0.0.1:2222
      expected Service sshd not to be installed
      ×  is expected not to be running
      expected Service sshd not to be running
+     
+Test Summary: 4 successful, 3 failures, 0 skipped   
 ```
