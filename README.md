@@ -1,18 +1,20 @@
-# packer-nginx64
+# kitchen-nginx64
 
 ## Description
-Create a Vagrant nginx ubuntu based box via Packer
+Create a Test Kitchen to check nginx is installed on a Vagrant nginx box
 
 ## Pre-requirements
 
 * [Packer](https://www.packer.io/downloads)
 * [Vagrant](https://www.vagrantup.com/downloads)
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Rbenv](https://github.com/rbenv/rbenv#installation)
 
 ## How to use this repo
 
 - Clone
 - Build
+- Test
 - Vagrant usage
 - Publish
 - Consume 
@@ -22,13 +24,13 @@ Create a Vagrant nginx ubuntu based box via Packer
 ### Clone the repo
 
 ```
-git clone https://github.com/viv-garot/packer-nginx64
+git clone https://github.com/viv-garot/kitchen-nginx64
 ```
 
 ### Change directory
 
 ```
-cd packer-nginx64
+cd kitchen-nginx64
 ```
 
 ### Build the box with Packer
@@ -37,13 +39,48 @@ cd packer-nginx64
 packer build nginx64.json
 ```
 
+### Add the box locally to Vagrant
+
+```
+vagrant box add --force --name nginx64 nginx64-vbox.box
+```
+
+### Test the build
+
+Install Ruby 2.6.6
+
+```
+rbenv install -l
+rbenv install 2.6.6
+rbenv local 2.6.6
+```
+
+### Install kitchen-test
+
+```
+bundle install --path vendor/bundle
+```
+
+### Run the tests
+
+Individually
+```
+bundle exec kitchen list
+bundle exec kitchen converge
+bundle exec kitchen verify
+bundle exec kitchen destroy
+```
+
+Or
+
+All at once 
+
+```
+bundle exec kitchen test
+```
+
+
 ### How to use the box with Vagrant
-
-#### Add the box to Vagrant
-
-```
-vagrant box add --name nginx64 nginx64-vbox.box
-```
 
 #### Initialize the box to create a VagrantFile
 
