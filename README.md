@@ -77,3 +77,36 @@ All at once
 ```
 bundle exec kitchen test
 ```
+
+Sample output
+
+```
+bundle exec kitchen test
+-----> Starting Test Kitchen (v3.0.0)
+-----> Cleaning up any prior instances of <default-vbox-nginx64>
+-----> Destroying <default-vbox-nginx64>...
+       Finished destroying <default-vbox-nginx64> (0m0.00s).
+-----> Testing <default-vbox-nginx64>
+-----> Creating <default-vbox-nginx64>...
+       Bringing machine 'default' up with 'virtualbox' provider...
+       ==> default: Importing base box 'nginx64'...
+
+[...]
+
+Profile: tests from {:path=>"/Users/viviengarot/Desktop/VisualCode/skillsmap/Packer/test-kitchen-nginx64-repo/kitchen-nginx64/test/integration/default"} (tests from {:path=>".Users.viviengarot.Desktop.VisualCode.skillsmap.Packer.test-kitchen-nginx64-repo.kitchen-nginx64.test.integration.default"})
+Version: (not specified)
+Target:  ssh://vagrant@127.0.0.1:2222
+
+  System Package nginx
+     ✔  is expected to be installed
+
+Test Summary: 1 successful, 0 failures, 0 skipped
+       Finished verifying <default-vbox-nginx64> (0m2.45s).
+-----> Destroying <default-vbox-nginx64>...
+       ==> default: Forcing shutdown of VM...
+       ==> default: Destroying VM and associated drives...
+       Vagrant instance <default-vbox-nginx64> destroyed.
+       Finished destroying <default-vbox-nginx64> (0m3.93s).
+       Finished testing <default-vbox-nginx64> (0m46.99s).
+-----> Test Kitchen is finished. (0m48.29s)
+```
