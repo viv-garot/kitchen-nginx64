@@ -2,8 +2,12 @@ describe package('nginx') do
   it { should be_installed }
 end
 
-describe package('vim') do
-    it { should be_installed }
+describe package('nginx') do
+    it { should be_enabled }
+end
+
+describe package('nginx') do
+    it { should be_running }
 end
 
 describe package('docker') do
@@ -11,9 +15,5 @@ describe package('docker') do
 end
 
 describe package('netcat') do
-    it { should be_installed }
-end
-
-describe package('vim-addon-manager') do
-    it { should not_be_installed }
+    it { should_not be_installed }
 end
