@@ -52,7 +52,7 @@ rbenv install 2.6.6
 rbenv local 2.6.6
 ```
 
-### Install kitchen-test
+### Install kitchen-test locally
 
 ```
 bundle install --path vendor/bundle
