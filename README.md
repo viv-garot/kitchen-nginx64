@@ -42,7 +42,9 @@ packer build nginx64.json
 vagrant box add --force --name nginx64 nginx64-vbox.box
 ```
 
-### Test the build
+## Test the build
+
+### Ruby installation
 
 Install Ruby 2.6.6
 
@@ -52,13 +54,13 @@ rbenv install 2.6.6
 rbenv local 2.6.6
 ```
 
-### Install kitchen-test locally
+### Install required gems dependencies locally
 
 ```
 bundle install --path vendor/bundle
 ```
 
-### Run the tests
+### Run the kitchen tests
 
 Individually
 ```
